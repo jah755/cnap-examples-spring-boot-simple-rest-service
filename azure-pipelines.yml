@@ -1,0 +1,18 @@
+resources:
+
+  repositories:
+    - repository: cnap-templates-pipeline-azure-jah
+      type: git
+      name: cnap-templates-pipeline-azure-jah
+      ref: refs/tags/v0.77
+
+variables:
+  image: exercise3-oracle-service
+  name: exercise3-oracle-service
+
+
+stages:
+  - template: azure-stage-build-and-deploy.yml@cnap-templates-pipeline-azure
+    parameters:
+      image: $(image)
+      name: $(name)
